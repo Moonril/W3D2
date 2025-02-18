@@ -78,6 +78,8 @@
           >AWESOME!</a
         >
       </h3>
+
+      
     </footer>
     <script>
       /* ESERCIZIO 1
@@ -124,6 +126,13 @@
       const changeUrls = function () {
         const anchor = document.getElementsByTagName('a')
         anchor[0].setAttribute('href', 'https://www.google.com')
+        
+        //  for(let i = 0; i < anchor.length; i++){
+        //  if(i !== anchor.length -1){
+        //  
+        //  anchor[0].setAttribute('href', 'https://www.google.com')
+        //   } 
+        //  }
       }
       changeUrls()
 
@@ -144,10 +153,10 @@
     */
 
       const addParagraph = function () {
-        const firstDiv = document.getElementsByTagName('div')
+        const firstDiv = document.getElementsByTagName('div')[0]
         const newP = document.createElement('p')
         newP.innerHTML = 'Sono un nuovo paragrafo'
-        firstDiv[0].appendChild(newP)
+        firstDiv.appendChild(newP)
       }
       addParagraph()
 
@@ -158,6 +167,9 @@
       const hideFirstUl = function () {
         const firstUI = document.getElementById('firstList')
         firstUI.style.display = 'none'
+        // firstUI.style.visibility = 'hidden'
+        // firstUI.style.opacity = 0
+        // firtUl.remove()
       }
       hideFirstUl()
       /* ESERCIZIO 8 
@@ -179,7 +191,7 @@
 
       const makeItClickable = function () {
         const title = document.getElementById('title') //for later
-        title.innerText = title.textContent.slice(0, -1)
+        title.innerText = title.innerText.slice(0, -1)
       }
 
       /* ESERCIZIO 10
@@ -195,12 +207,27 @@
        La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
     */
 
-      const generateTable = function () {
+    const generateTable = function (){
+      const tableContainer = document.getElementById('tableArea')
+      tableContainer.innerHTML = `<table>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>`
+    }
+
+    //generateTable()
+
+
+
+     /*  const generateTable = function () {
         const tableArea = document.getElementById('tableArea')
         const table = tableArea.createElement('table') //for later
         table.classList.add('table')
         tableArea.appendChild(table) //incompleta
-      }
+      } */
 
       /* ESERCIZIO 12
        Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
@@ -213,6 +240,15 @@
         table.appendChild(tr)
         table.appendChild(tr)
         table.appendChild(tr) //incompleta
+
+        /* const newRow = document.createElement('tr')
+        newRow.innerHTML = `
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>`
+
+        const table = document.querySelector('tbody') */
       }
 
       /* ESERCIZIO 14
@@ -240,7 +276,7 @@
           return color
           
         }
-        
+        // const randomColor = `rgb(${Math.flor(Math.random( +256)), ${Math.flor(Math.random( +256)), ${Math.flor(Math.random( +256))})`   //versione molto più semplice
         colorH2.style.color = randomColor()
         
         
